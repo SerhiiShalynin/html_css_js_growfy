@@ -1,0 +1,865 @@
+/* ------------------ */
+/* --RESET STYLES---- */
+/* ------------------ */
+/* --файл reset.css подключен в HTML-документе-- */
+/* @import url("reset.css"); */
+/* ------------------ */
+body {
+	background-color: #0d0d11;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	color: #9c9c9c;
+}
+/* ------------------ */
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: clip;
+}
+/* ------------------ */
+[class*="__container"]{
+	max-width: 1310px;
+	margin: 0 auto;
+	padding: 0px 15px;
+}
+/* ------------------ */
+.page {
+	flex: 1 1 100%;
+}
+.page__hero {
+}
+.page__clients {
+}
+.page__services {
+}
+.page__why {
+}
+.page__advantages {
+}
+.page__testimonials {
+}
+/* ------------------ */
+.button {
+	display: inline-block;
+	text-align: center;
+	padding: 16px 30px;
+	background-color: #3d96f4;
+	border-radius: 50px;
+	color: #fff;
+	letter-spacing: 2px;
+	font-size: 14px;
+	font-weight: 500;
+	transition: background-color .3s ease 0s;
+	line-height: 1.43; /* 22/14 */
+}
+.button_dark {
+	background: rgba(129, 129, 139, .2);
+}
+@media (max-width: 991.98px) {
+	.button {
+		padding: 14px 20px;
+	}
+}
+.button:hover {
+	background-color: #68a9f0;
+}
+.button_dark:hover {
+	background: rgba(129, 129, 139, .4);
+}
+/* ------------------ */
+.header-hero {
+}
+.header-hero__label {
+	display: inline-block;
+	border: 1px solid rgba(129, 129, 139, 0.2);
+	border-radius: 12px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #9C9C9C;
+	padding: 11px 18px;
+	transition: border .3s ease 0s;
+}
+.header-hero__label:hover {
+	border: 1px solid rgba(129, 129, 139, 0.4);
+}
+.header-hero__label:not(:last-child) {
+	margin-bottom: 19px;
+}
+.header-hero__title {
+	font-weight: 500;
+	font-size: 51px;
+	line-height: 1.19; /* 61/51 */
+	color: #fff;
+	position: relative;
+}
+.header-hero__title:not(:last-child) {
+	margin-bottom: 28px;
+}
+.header-hero__text {
+	font-size: 18px;
+	line-height: 1.5; /* 24/16 */
+}
+.header-hero__text:not(:last-child) {
+	margin-bottom: 33px;
+}
+.header-hero__body {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+.header-hero__body .header-hero__text {
+	margin: 0;
+}
+.header-hero__body .header-hero__actions {
+	align-self: flex-end;
+	flex: 0 0 auto;
+}
+.header-hero__actions {
+	display: flex;
+	column-gap: 32px;
+	row-gap: 15px;
+}
+.header-hero__button {
+}
+.header-hero__list {
+}
+.header-hero__list li {
+	position: relative;
+	min-height: 32px;
+	padding-left: 40px;
+	padding-top: 4px;
+	line-height: 1.5; /* 24/16 */
+}
+.header-hero__list li:not(:last-child) {
+	margin-bottom: 16px;
+}
+.header-hero__list li::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	width: 32px;
+	height: 32px;
+	background: rgba(129, 129, 139, 0.1) url('../img/li.svg') center no-repeat;
+}
+
+@media (max-width: 991.98px) {
+	.header-hero__title {
+		font-size: 44px;
+	}
+}
+
+@media (min-width: 768px){
+	.header-hero__title {
+		max-width: 520px;
+	}
+	.header-hero__text {
+		max-width: 500px;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.header-hero__title {
+		font-size: 32px;
+	}
+	.header-hero__title:not(:last-child) {
+		margin-bottom: 15px;
+	}
+	.header-hero__text:not(:last-child) {
+		margin-bottom: 15px;
+	}
+	.header-hero__body {
+		flex-direction: column;
+		gap: 0;
+	}
+	.header-hero__body .header-hero__actions {
+		align-self: flex-start;
+	}
+}
+@media (max-width: 479.98px) {
+	.header-hero__actions {
+		flex-direction: column;
+	}
+}
+
+/* ------------------ */
+
+.text {
+	color: #81818b;
+	line-height: 1.5;
+}
+
+/* ------------------ */
+/* Header */
+/* ------------------ */
+.header {
+	/* Фиксируем header, чтобы не уезжал при прокрутке */
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	/* Сделаем его полупрозрачным, в дальнейшем можно откорректировать */
+	background-color: rgba(13, 13, 17, .7);
+}
+.header__container {
+	display: flex;
+	column-gap: 35px;
+	align-items: center;
+	min-height: 116px;
+	/* Отступы безопасности сверху и снизу */
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.header__logo {}
+.header__menu {
+	/* Растущий, сжимаемый гибкий элемент, занимающий автоматически всё свободное пространство. Таким образом, элементы (header) находящиеся справа, прижимаются вправо. */
+	flex: 1 1 auto;
+}
+.menu {}
+.menu__body {}
+.menu__list {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 35px;
+	row-gap: 3px;
+	justify-content: flex-end;
+}
+.menu__item {}
+.menu__link {
+	/* При вёрстке выезжающего меню бургера (.menu__list) на разрешении @media (max-width: 767.98px), добавляем (display: block;) в (.menu__link) в этом месте: */
+	/* Это необходимо, чтобы пункты меню (ссылки) были во всю ширину, так легче будет нажимать на них */
+	display: block;
+	/* ------------------ */
+	font-size: 16px;
+	color: #fff;
+	line-height: 1.62; /* 26/16 */
+}
+.menu__link:hover {
+	text-decoration: underline;
+}
+.header__cart {}
+.cart-header {
+	color: #fff;
+	align-items: center;
+	display: flex;
+	gap: 5px;
+}
+.cart-header:hover .cart-header__text {
+	text-decoration: underline;
+}
+.cart-header__text {
+	font-size: 18px;
+	line-height: 1.55; /* 28/18 */
+}
+.cart-header__quantity {
+	background: rgba(129, 129, 139, .3);
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	font-size: 14px;
+	font-weight: 500;
+}
+.header__button {
+	/* Чтобы текст кнопки не складывался в две строки */
+	flex: 0 0 auto;
+}
+.icon-menu {
+	display: none;
+}
+
+/* Достаём наверх логотип (.header__logo), корзину (.header__cart) и кнопку (.header__button) */
+.header__logo,
+.header__cart,
+.header__button {
+	position: relative;
+	z-index: 5;
+}
+
+@media (max-width: 991.98px) {
+	.header__container,
+	.menu__list {
+		column-gap: 25px;
+	}
+	/* Уменьшаем высоту шапки header */
+	.header__container {
+		min-height: 90px;
+	}
+}
+@media (max-width: 767.98px) {
+	/* Уменьшение расстояния между элементами шапки header */
+	.header__container {
+		column-gap: 15px;
+	}
+	.icon-menu {
+		display: block;
+		flex: 0 0 30px;
+		height: 18px;
+		position: relative;
+		z-index: 5;
+	}
+	.icon-menu span,
+	.icon-menu::before,
+	.icon-menu::after {
+		content: "";
+		right: 0;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		background-color: #fff;
+		transition: all 0.3s ease 0s;
+	}
+	.icon-menu::before {
+		top: 0;
+	}
+	.icon-menu::after {
+		bottom: 0;
+	}
+	.icon-menu span {
+		top: calc(50% - 1px);
+	}
+
+	.menu-open .icon-menu span {
+		width: 0;
+	}
+	.menu-open .icon-menu::before {
+		top: calc(50% - 1px);
+		transform: rotate(-45deg);
+	}
+	.menu-open .icon-menu::after {
+		bottom: calc(50% - 1px);
+		transform: rotate(45deg);
+	}
+
+	/* Верстаем (.menu__body {}) - коробочка которая будет закрываться и открываться, в которой пункты меню */
+	.menu__body {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		/* left: 0; исполбзуем для вёрстки и потом убираем left: -100%; */
+		/* left: 0; */
+		left: -100%;
+		top: 0;
+		/* Добавляем отступы, сверху 100px, рассчитывается от высоты шапки (.header__container - 70px + 30px), слева и справа по 15px и снизу 30px */
+		padding: 100px 15px 30px 15px;
+		/* Чтобы меню скролилось (overflow: auto;) и добавляем следующим селектором прокладку (.menu__body::before), под которую будут заходить пункты меню при скроле */
+		overflow: auto;
+		transition: left 0.3s ease 0s;
+	}
+	/* Прокладка, чтобы под неё заходили пункты меню при скроле */
+	.menu__body::before {
+		content: "";
+		width: 100%;
+		position: fixed;
+		top: 0;
+		/* left: 0; исполбзуем для вёрстки и потом убираем left: -100%; */
+		/* left: 0; */
+		left: -100%;
+		height: 70px;
+		background-color: #000;
+		z-index: 2;
+		transition: left 0.3s ease 0s;
+	}
+	/* И в заключении вёрстки бургера, убираем меню, оно должно быть скрыто и выезжать при клике на иконку меню бургер. Для этого в (.menu__body и .menu__body::before) ставим (left: -100%;) и (transition: left 0.3s ease 0s;) для плавного выезда */
+	/* Далее список с пунктами меню */
+	.menu__list {
+		row-gap: 10px;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		/* В этом моменте добавляем (display: block;) в (.menu__link) */
+	}
+	.menu__link {
+		font-size: 32px;
+	}
+	/* Уменьшаем высоту шапки header в свёрнутом состоянии */
+	.header__container {
+		min-height: 70px;
+	}
+}
+/* Достаём наверх логотип (.header__logo), корзину (.header__cart) и кнопку (.header__button), пишем перед media-стилями */
+
+/* Внутри (.menu-open), если в родительском элементе есть (menu-open) обращаемся к (.menu__body) и возвращаем (left: 0;) и тоже самое к (.menu__body::before) */
+.menu-open .menu__body,
+.menu-open .menu__body::before {
+	left: 0;
+}
+
+/* Приём позволяющий сократить логотип в короткое лого без надписи, но в 320px пока всё равно не помещаемся, поэтому убираем надпись корзина (Cart) и заменяем на иконку максимального размера, чтобы поместилось количество товаров, например 100 */
+@media (max-width: 560px) {
+	.header__logo {
+		width: 32px;
+		flex: 0 0 32px;
+		overflow: hidden;
+	}
+	.cart-header__text {
+		display: none;
+	}
+	.cart-header__quantity {
+		width: 33px;
+		/* height: 45px; */
+		height: 40px;
+		padding-top: 16px;
+		border-radius: 0;
+		background: url('../img/shopping-bag.svg') center / auto 100% no-repeat;
+	}
+}
+
+/* ------------------ */
+.hero {
+	padding-top: 160px;
+	padding-bottom: 100px;
+}
+.hero__container {
+	display: flex;
+	gap: 32px;
+}
+.hero__content {
+	flex: 0 1 50%;
+	align-self: center;
+}
+.hero__title {
+}
+.hero__header {
+	position: relative;
+}
+.hero__header::before {
+	content: "";
+	background: url('../img/decor.svg') 0 0 / 100% no-repeat;
+	width: 122px;
+	height: 122px;
+	position: absolute;
+	top: -10px;
+	left: -34px;
+}
+.hero__text {
+}
+.hero__actions {
+}
+.hero__button {
+}
+.hero__images {
+	flex: 0 1 50%;
+}
+.images-hero {
+	display: flex;
+	gap: 9.615385%; /* 60/624 */
+	justify-content: center;
+}
+.images-hero__column {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+.images-hero__item {
+	overflow: hidden;
+}
+.images-hero__item_1,
+.images-hero__item_4 {
+	border-radius: 50% / 29%;
+}
+.images-hero__item_2 {
+	border-radius: 50% 50% 0 50%;
+}
+.images-hero__item_3 {
+	border-radius: 50% 0 50% 50%;
+}
+.images-hero__item img {
+	max-width: 100%;
+	/* Убираем белые поля по краям */
+	transform: scale(1.005);
+}
+
+@media (max-width: 991.98px) {
+	.hero {
+		padding-top: 120px;
+		padding-bottom: 60px;
+	}
+}
+@media (max-width: 767.98px) {
+	.hero {
+		padding-top: 100px;
+		padding-bottom: 30px;
+	}
+	.hero__container {
+		flex-direction: column;
+	}
+	.hero__content {
+		align-self: stretch;
+	}
+}
+/* ------------------ */
+.clients {
+	padding-top: 100px;
+	padding-bottom: 70px;
+}
+.clients__container {
+}
+.clients__title {
+	text-transform: uppercase;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 1px;
+	font-size: 14px;
+	line-height: 1.57; /* 22/14 */
+	margin-bottom: 44px;
+}
+.clients__items {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.clients__item img {
+	max-width: 100%;
+}
+@media (max-width: 991.98px) {
+	.clients {
+		padding-top: 70px;
+		padding-bottom: 50px;
+	}
+	.clients__title {
+		margin-bottom: 30px;
+	}
+}
+@media (max-width: 767.98px) {
+	.clients {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.clients__title {
+		margin-bottom: 20px;
+	}
+}
+/* ------------------ */
+.services {
+	padding-top: 70px;
+	padding-bottom: 100px;
+}
+.services__container {
+	display: flex;
+	gap: 32px;
+}
+.services__content {
+	flex: 0 1 50%;
+	align-self: center;
+}
+.services__header {
+}
+.services__items {
+	flex: 0 1 50%;
+	display: flex;
+	gap: 32px;
+	justify-content: center;
+}
+.services__column {
+}
+.services__column:first-child {
+	padding-top: 48px;
+}
+.services__item {
+}
+.services__item:not(:last-child) {
+	margin-bottom: 32px;
+}
+.item-services {
+	background: rgba(129, 129, 139, 0.1);
+	border-radius: 30px;
+	padding: 55px 25px;
+	display: block;
+}
+.item-services__icon {
+}
+.item-services__icon:not(:last-child) {
+	margin-bottom: 16px;
+}
+.item-services__title {
+	font-size: 19px;
+	font-weight: 400;
+	color: #fff;
+	line-height: 1.42; /* 27/19 */
+}
+.item-services__title:not(:last-child) {
+	margin-bottom: 10px;
+}
+.item-services__text {
+}
+@media (max-width: 1100px) {
+	.services__container {
+		flex-direction: column;
+	}
+	.services__header .header-hero__title,
+	.services__header .header-hero__text {
+		max-width: none;
+	}
+}
+@media (max-width: 991.98px) {
+	.services {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}
+@media (max-width: 767.98px) {
+	.services {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+@media (max-width: 620px) {
+	.services__items {
+		flex-direction: column;
+	}
+	.services__column:first-child {
+		padding-top: 0px;
+	}
+}
+/* ------------------ */
+.why {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+.why__container {
+	display: flex;
+	column-gap: 64px;
+	row-gap: 32px;
+}
+.why__images {
+	flex: 0 1 50%;
+}
+.images-why {
+	display: flex;
+	position: relative;
+	align-self: flex-end;
+}
+.images-why__item {
+	overflow: hidden;
+}
+.images-why__item img {
+	max-width: 100%;
+	/* Убираем белые поля по краям */
+	transform: scale(1.005);
+}
+.images-why__item_1 {
+	border-radius: 90% 0 49% 49% / 50% 0 31% 31%;
+}
+.images-why__item_2 {
+	align-self: flex-end;
+	border-radius: 50% 50% 50% 0;
+}
+.why__content {
+	flex: 0 1 50%;
+	align-self: center;
+}
+.why__header {
+}
+.images-why::before {
+	content: "";
+	background: url('../img/decor.svg') 0 0 / 100% no-repeat;
+	width: 122px;
+	height: 122px;
+	position: absolute;
+	bottom: -10px;
+	left: -34px;
+}
+@media (max-width: 991.98px) {
+	.why {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+}
+@media (max-width: 767.98px) {
+	.why {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.why__container {
+		flex-direction: column-reverse;
+	}
+}
+/* ------------------ */
+.advantages {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+.advantages__container {
+	display: flex;
+	row-gap: 32px;
+}
+.advantages__content {
+}
+.advantages__items {
+	flex: 1 1 auto;
+	padding-right: 32px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: 32px;
+}
+.advantages__item {
+	padding: 40px;
+	background: rgba(129, 129, 139, 0.1);
+	border-radius: 30px;
+}
+.advantages__value {
+	font-size: 51px;
+	font-weight: 500;
+	color: #fff;
+}
+.advantages__value:not(:last-child) {
+	margin-bottom: 32px;
+}
+.advantages__text {
+	font-size: 18px;
+	line-height: 1.5;
+}
+.advantages__image {
+	align-self: flex-end;
+	flex: 0 0 38%; /* 500/1310 */
+	overflow: hidden;
+	/* border-radius: 0 50% 50% 50%; */
+	border-radius: 0 68% 60% 60% / 0 68% 50% 50%;
+}
+.advantages__image img {
+	max-width: 100%;
+	/* Убираем белые поля по краям */
+	transform: scale(1.005);
+}
+@media (max-width: 991.98px) {
+	.advantages {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	.advantages__container {
+		flex-direction: column;
+	}
+	.advantages__items {
+		padding-right: 0;
+	}
+	.advantages__image {
+		align-self: center;
+	}
+}
+@media (max-width: 767.98px) {
+	.advantages {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+@media (max-width: 650px) {
+	.advantages__items {
+		grid-template-columns: auto;
+	}
+}
+/* ------------------ */
+.testimonials {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+.testimonials__container {
+}
+.testimonials__header {
+	margin-bottom: 64px;
+}
+.testimonials__header .header-hero__title {
+	max-width: none;
+}
+.testimonials__header .header-hero__text {
+	max-width: 740px;
+}
+.testimonials__items {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
+}
+.testimonials__item {
+}
+.item-testimonial {
+	padding: 64px 40px;
+	background: rgba(129, 129, 139, 0.1);
+	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+.item-testimonial__user {
+}
+.user-testimonial {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+.user-testimonial__avatar {
+	flex: 0 0 68px;
+	overflow: hidden;
+}
+.user-testimonial__avatar img {
+	max-width: 100%;
+	/* Увеличиваем изображение, чтобы не выглядывали белые поля */
+	transform: scale(1.05);
+}
+.user-testimonial__avatar_1 {
+	border-radius: 0 50% 50% 50%;
+}
+.user-testimonial__avatar_2 {
+	border-radius: 50% 0 50% 50%;
+}
+.user-testimonial__avatar_3 {
+	border-radius: 50% 50% 0 50%;
+}
+.user-testimonial__body {
+}
+.user-testimonial__title {
+	line-height: 1.5;
+	color: #fff;
+}
+.user-testimonial__title:not(:last-child) {
+	margin-bottom: 7px;
+}
+.user-testimonial__company {
+	font-size: 14px;
+	line-height: 1.57; /* 22/14 */
+}
+.item-testimonial__title {
+	font-size: 32px;
+	color: #fff;
+	line-height: 1.4; /* 45/32 */
+}
+.item-testimonial__text {
+	font-size: 16px;
+	flex: 1 1 auto;
+	line-height: 1.5; /* 24/16 */
+}
+.item-testimonial__rating {
+}
+@media (max-width: 1100px) {
+	.testimonials__items {
+		grid-template-columns: auto;
+	}
+}
+@media (max-width: 991.98px) {
+	.testimonials {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	.testimonials__header {
+		margin-bottom: 40px;
+	}
+}
+@media (max-width: 767.98px) {
+	.testimonials {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.item-testimonial {
+		padding: 30px 15px;
+	}
+}
+/* ------------------ */
+/* ------------------ */
+/* ------------------ */
